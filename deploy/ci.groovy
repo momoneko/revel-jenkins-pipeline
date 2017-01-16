@@ -12,6 +12,7 @@ def onFail (Closure cl) {
 def runProvisioning() {
     // tmp'
     // sh 'cp ./conf/settings.conf.sample ./conf/settings.conf'
+    sh 'echo $PATH'
     sh 'glide install'
 }
 
