@@ -15,6 +15,7 @@ def runProvisioning() {
     sh 'echo $PATH'
     sh 'echo $(pwd)'
     sh 'ls'
+    checkout scm
 }
 
 
