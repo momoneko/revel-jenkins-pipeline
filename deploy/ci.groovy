@@ -15,10 +15,9 @@ def runProvisioning() {
     sh 'echo $PATH'
     sh 'echo $(pwd)'
    withEnv(["GOPATH=~/go-workspace"]) {
-        sh 'glide install'
-    }
-   withEnv(["PATH=PATH:/usr/local/bin/"]) {
-        sh 'glide install'
+        withEnv(["PATH=PATH:/usr/local/bin/"]) {
+                sh 'glide install'
+            }
     }
 }
 
