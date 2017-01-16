@@ -1,5 +1,5 @@
 node {
-   /* checkout scm */
+   checkout scm
    def ci = load("./deploy/ci.groovy");
 
    ci.onFail {
