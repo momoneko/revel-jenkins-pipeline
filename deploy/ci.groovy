@@ -18,7 +18,7 @@ def runProvisioning() {
    withEnv(["GOPATH=~/go-workspace"]) {
         // -p so that mkdir whines when folders exists
         sh 'mkdir -p $GOPATH'
-        withEnv(["PATH=PATH:/usr/local/bin/"]) {
+        withEnv(["PATH=$PATH:/usr/local/bin/"]) {
                 sh 'glide install'
             }
     }
