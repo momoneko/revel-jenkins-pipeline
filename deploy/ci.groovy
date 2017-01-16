@@ -16,11 +16,12 @@ def runProvisioning() {
     sh 'echo $(pwd)'
     withEnv(["GOPATH=${env.WORKSPACE}/go-workspace"]) {
         // -p so that mkdir does not whine when folders exists
-        sh 'rm -rf $GOPATH'
+        if ( fileExists("go-workspace/src/project/")) {
+            sh 'rm -rf go-workspace/src/project'
+        }
 
         sh 'mkdir -p $GOPATH/src/project/'
         sh 'ls'
-        sh 'rm -rf $GOPATH/src
         sh 'ls | grep -v $(basename $GOPATH) | xargs -I % mv %  $GOPATH/src/project'
         dir 'go-workspace/src/project'
         withEnv(["PATH=$PATH:/usr/local/bin/"]) {
