@@ -18,7 +18,8 @@ def runProvisioning() {
         // -p so that mkdir does not whine when folders exists
         sh 'mkdir -p $GOPATH'
         sh 'ls'
-        sh 'ls | grep -v $(basename $GOPATH) | xargs echo '
+        sh 'ls | grep -v $(basename $GOPATH) | xargs mv  $GOPATH/src'
+        sh 'tree'
         withEnv(["PATH=$PATH:/usr/local/bin/"]) {
                 sh 'glide install'
             }
