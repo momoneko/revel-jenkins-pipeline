@@ -14,21 +14,6 @@ def runProvisioning() {
     // sh 'cp ./conf/settings.conf.sample ./conf/settings.conf'
     sh 'echo $PATH'
     sh 'echo $(pwd)'
-    withEnv(["GOPATH=${env.WORKSPACE}/go-workspace"]) {
-        // -p so that mkdir does not whine when folders exists
-        if ( fileExists("go-workspace/src/project/")) {
-            sh 'rm -rf go-workspace/src/project'
-        }
-
-        sh 'mkdir -p $GOPATH/src/project/'
-        sh 'ls'
-        sh 'ls | grep -v $(basename $GOPATH) | xargs -I % mv %  $GOPATH/src/project'
-        dir 'go-workspace/src/project' {
-            withEnv(["PATH=$PATH:/usr/local/bin/"]) {
-                sh 'glide install'
-            }
-        }
-    }
 }
 
 
