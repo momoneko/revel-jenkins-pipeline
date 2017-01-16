@@ -9,6 +9,11 @@ node {
 
    ci {
 
+       stage ('provision') {
+            sh "echo provision"
+           /* runProvisioning() */
+       }
+
        stage ('unit_test') {
            sh "echo unit_test" 
            /* runUnitTests() */
@@ -19,10 +24,6 @@ node {
            /* runIntegrationTests() */
        }
 
-       stage ('provision') {
-            sh "echo provision"
-           /* runProvisioning() */
-       }
 
        stage ('build') {
             sh "echo provision"
