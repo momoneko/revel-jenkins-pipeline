@@ -11,7 +11,7 @@ def onFail (Closure cl) {
 
 def runProvisioning() {
     // tmp'
-    sh 'cp ./conf/settings.conf.sample ./conf/settings.conf'
+    // sh 'cp ./conf/settings.conf.sample ./conf/settings.conf'
     sh 'glide install'
 }
 

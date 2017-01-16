@@ -11,7 +11,7 @@ node {
 
        stage ('provision') {
             sh "echo provision"
-           /* runProvisioning() */
+           runProvisioning()
        }
 
        stage ('unit_test') {
