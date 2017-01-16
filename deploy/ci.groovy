@@ -14,6 +14,9 @@ def runProvisioning() {
     // sh 'cp ./conf/settings.conf.sample ./conf/settings.conf'
     sh 'echo $PATH'
     sh 'echo $(pwd)'
+   withEnv(["GOPATH=~/go-workspace"]) {
+        sh 'glide install'
+    }
    withEnv(["PATH=PATH:/usr/local/bin/"]) {
         sh 'glide install'
     }
