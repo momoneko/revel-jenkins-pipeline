@@ -12,10 +12,14 @@ def onFail (Closure cl) {
 def runProvisioning() {
     // tmp'
     // sh 'cp ./conf/settings.conf.sample ./conf/settings.conf'
-    sh 'echo $PATH'
-    sh 'echo $(pwd)'
-    sh 'ls'
-    checkout scm
+
+    if ( fileExists('build') ) {
+        sh 'rm -rf build'
+    }
+
+    sh 'mkdir build'
+
+
 }
 
 
