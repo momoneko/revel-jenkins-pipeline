@@ -10,22 +10,26 @@ node {
    ci {
 
        stage ('unit_test') {
-           runUnitTests()
+           sh "echo unit_test" 
+           /* runUnitTests() */
        }
 
        stage ('integration_test') {
-           runIntegrationTests()
+            sh "echo integration tests"
+           /* runIntegrationTests() */
        }
 
        stage ('provision') {
-           runProvisioning()
+            sh "echo provision"
+           /* runProvisioning() */
        }
 
        stage ('build') {
-           runBuild()
+            sh "echo provision"
+       /*     runBuild() */
        }
 
-       //notifyJobSucceed()
+       /* //notifyJobSucceed() */
    }
 
 
