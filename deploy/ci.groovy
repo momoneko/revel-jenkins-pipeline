@@ -16,7 +16,7 @@ def runProvisioning() {
     sh 'echo $(pwd)'
     withEnv(["GOPATH=${env.WORKSPACE}/go-workspace"]) {
         // -p so that mkdir does not whine when folders exists
-        if ( fileExists("go-workspace/src/project/" ) {
+        if ( fileExists("go-workspace/src/project/" )) {
             sh 'rm -rf go-workspace/src/project'
         }
 
