@@ -14,6 +14,7 @@ def runProvisioning() {
     // sh 'cp ./conf/settings.conf.sample ./conf/settings.conf'
     sh 'echo $PATH'
     sh 'echo $(pwd)'
+    sh 'ls'
 }
 
 
