@@ -19,7 +19,6 @@ def runProvisioning() {
         sh 'mkdir -p $GOPATH/src/project/'
         sh 'ls'
         sh 'ls | grep -v $(basename $GOPATH) | xargs -I % mv %  $GOPATH/src/project'
-        sh 'tree'
         withEnv(["PATH=$PATH:/usr/local/bin/"]) {
                 sh 'glide install'
             }
