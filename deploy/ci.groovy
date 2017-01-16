@@ -15,7 +15,7 @@ def runProvisioning() {
     sh 'echo $PATH'
     sh 'echo $(pwd)'
     sh 'ls'
-   withEnv(["GOPATH=$(pwd)/go-workspace"]) {
+   withEnv(['GOPATH=$(pwd)/go-workspace']) {
         // -p so that mkdir does not whine when folders exists
         sh 'mkdir -p $GOPATH'
         sh 'ls | grep -v $(basename $GOPATH) | xargs echo '
