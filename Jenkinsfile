@@ -2,17 +2,12 @@ node {
     stage("checkout"){
         sh 'mkdir -p gopath/src'
         checkout([$class: 'GitSCM', 
-                branches: [[name: '*/master']],
+                branches: scm.branches,
                 doGenerateSubmoduleConfigurations: false,
-                extensions: [
+                extensions: scm.extensions + [
                     [$class: 'RelativeTargetDirectory', relativeTargetDir: 'gopath/src/project'],
                     [$class: 'CleanBeforeCheckout']], 
-                submoduleCfg: [],
-                userRemoteConfigs: [
-                    [credentialsId: 'b952124c-8888-48ce-b77d-1b1599be8673',
-                    url: 'https://github.com/momoneko/revel-jenkins-pipeline.git']]
-                ])
-    }
+                submoduleCfg: []}
     withEnv(["GOPATH=${WORKSPACE}/gopath", 'PATH=$PATH:/usr/local/bin']) {
             dir('gopath/src/project') {
                 stage('provision') {
