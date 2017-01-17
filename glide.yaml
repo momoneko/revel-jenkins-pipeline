@@ -1,3 +1,4 @@
 package: github.com/momoneko/revel-proj
 import:
 - package: github.com/stretchr/testify/
+- package: github.com/revel/cmd/revel
