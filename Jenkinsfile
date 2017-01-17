@@ -6,7 +6,8 @@ node {
                 doGenerateSubmoduleConfigurations: false,
                 extensions: scm.extensions + [
                     [$class: 'RelativeTargetDirectory', relativeTargetDir: 'gopath/src/project'],
-                    [$class: 'CleanBeforeCheckout']]
+                    [$class: 'CleanBeforeCheckout']],
+                userRemoteConfigs: scm.userRemoteConfigs
                 ])
     }
     withEnv(["GOPATH=${WORKSPACE}/gopath", 'PATH=$PATH:/usr/local/bin']) {
