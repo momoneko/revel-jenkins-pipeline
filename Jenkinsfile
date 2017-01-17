@@ -7,8 +7,8 @@ node {
                 extensions: scm.extensions + [
                     [$class: 'RelativeTargetDirectory', relativeTargetDir: 'gopath/src/project'],
                     [$class: 'CleanBeforeCheckout']]
-                )
-                }
+                ])
+    }
     withEnv(["GOPATH=${WORKSPACE}/gopath", 'PATH=$PATH:/usr/local/bin']) {
             dir('gopath/src/project') {
                 stage('provision') {
