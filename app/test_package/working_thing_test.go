@@ -10,6 +10,6 @@ func TestWork(t *testing.T) {
 
 	result := Function()
 
-	assert.Equal("Function", result, "It's not working")
+	assert.Equal(t, "Function", result, "It's not working")
 
 }
