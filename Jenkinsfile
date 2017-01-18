@@ -24,6 +24,10 @@ node {
                         sh "go test -cover ./app/..."
                     }
                 }
+                stage ('revel test') {
+                    sh "revel test project"
+                }
+                    
                 stage ('build') {
                     sh '$GOPATH/bin/revel package project'
                 }
