@@ -25,7 +25,7 @@ node {
                     }
                 }
                 stage ('revel test') {
-                    sh "revel test project"
+                    sh "$GOPATH/bin/revel test project"
                 }
                     
                 stage ('build') {
