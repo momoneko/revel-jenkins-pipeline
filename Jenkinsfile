@@ -21,7 +21,7 @@ node {
                 }
                 stage ('test') {
                     withEnv(["REVELIMPORTPATH=project"]) {
-                        sh "go test -cover ./app/test_package"
+                        sh "go test -cover ./app/..."
                     }
                 }
                 stage ('build') {
