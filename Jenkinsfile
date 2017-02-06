@@ -10,7 +10,7 @@ node("GO-slave") {
                 userRemoteConfigs: scm.userRemoteConfigs
                 ])
     }
-    withEnv(["GOPATH=${WORKSPACE}/gopath", 'PATH=$PATH:/usr/local/bin']) {
+    withEnv(["GOPATH=${WORKSPACE}/gopath"]) {
             dir('gopath/src/project') {
                 stage('provision') {
                     withEnv(['GLIDEBIN=/usr/local/bin/glide']) {
