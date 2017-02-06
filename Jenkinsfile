@@ -11,6 +11,7 @@ node("GO-slave") {
                 ])
     }
     withEnv(["GOPATH=${WORKSPACE}/gopath"]) {
+            sh "echo $GOPATH"
             dir('gopath/src/project') {
                 stage('provision') {
                     withEnv(['GLIDEBIN=/usr/bin/glide']) {
