@@ -1,4 +1,4 @@
-node {
+node("GO-slave") {
     stage("checkout"){
         sh 'mkdir -p gopath/src'
         checkout([$class: 'GitSCM', 
