@@ -13,7 +13,7 @@ node("GO-slave") {
     withEnv(["GOPATH=${WORKSPACE}/gopath"]) {
             dir('gopath/src/project') {
                 stage('provision') {
-                    withEnv(['GLIDEBIN=/usr/local/bin/glide']) {
+                    withEnv(['GLIDEBIN=/usr/bin/glide']) {
                         sh '$GLIDEBIN install'
                         sh 'go get -v github.com/revel/revel'
                         sh 'go get -v github.com/revel/cmd/revel'
